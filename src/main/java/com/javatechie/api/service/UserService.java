@@ -17,9 +17,13 @@ public class UserService {
 
 
     public User saveUser(UserRequest userRequest) {
-        User user = User.
-                build(0, userRequest.getName(), userRequest.getEmail(),
-                        userRequest.getMobile(), userRequest.getGender(), userRequest.getAge(), userRequest.getNationality());
+        User user = new User();
+        user.setAge(userRequest.getAge());
+        user.setEmail(userRequest.getEmail());
+        user.setGender(userRequest.getGender());
+        user.setMobile(userRequest.getMobile());
+        user.setName(userRequest.getName());
+        user.setNationality(userRequest.getNationality());
         return repository.save(user);
     }
 
